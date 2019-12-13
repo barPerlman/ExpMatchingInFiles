@@ -3,27 +3,39 @@ The following script searches for lines matching regular
 expression in file/s"""
 
 import sys
-import re
 
+
+""" Create and returns a dictionary includes the files names to search at
+ as a key """
+
+
+def create_files_dictionary(args_list):
+    # get the range to get the files names from in the arguments list
+    files_range_in_argv = get_range_of_files(args_list)
+    files_dictionary = {}
+    for file in args_list[files_range_in_argv[0]:files_range_in_argv[1]+1:]:
+        files_dictionary.setdefault(file, [])
+
+    return files_dictionary
 
 """Returns a range for files to look at in argv list.
 In there are no such files in list, returns None"""
 
 
-def get_range_of_files(arguments_list):
-    params_set = set(arguments_list)
+def get_range_of_files(args_list):
+    params_set = set(args_list)
     not_valid_index = -1
     first_index = not_valid_index
     last_index = not_valid_index
     if "-f" in params_set:
-        first_index = arguments_list.index("-f") + 1
+        first_index = args_list.index("-f") + 1
     elif "--files" in params_set:
-        first_index = arguments_list.index("--files") + 1
+        first_index = args_list.index("--files") + 1
     if first_index > -1:  # Found index for the first file
         last_index = first_index
         # Find the last index of a file in arguments list
-        while last_index < len(arguments_list) - 1 \
-                and not arguments_list[last_index].startswith("-"):
+        while last_index < len(args_list) - 1 \
+                and not args_list[last_index].startswith("-"):
             last_index = last_index + 1
     files_list = [first_index, last_index]
     if first_index == not_valid_index or last_index == not_valid_index:
@@ -34,8 +46,8 @@ def get_range_of_files(arguments_list):
 """Get the reg format or None if not exist"""
 
 
-def get_reg_format(arguments_list):
-    params_set = set(arguments_list)
+def get_reg_format(args_list):
+    params_set = set(args_list)
     if "-r" in params_set:
         return "-r"
     if "--regex" in params_set:
@@ -47,13 +59,13 @@ def get_reg_format(arguments_list):
 in the valid format"""
 
 
-def check_params_validity(arguments_list):
+def check_params_validity(args_list):
     minimum_params = 4  # amount of min. params the program expects to receive
     is_params_valid = True
-    params_set = set(arguments_list)
-    if get_reg_format(arguments_list) is None:  #check if reg option is exist
+    params_set = set(args_list)
+    if get_reg_format(args_list) is None:  #check if reg option is exist
         is_params_valid = False
-    if len(arguments_list) < minimum_params:
+    if len(args_list) < minimum_params:
         is_params_valid = False
     return is_params_valid
 
@@ -69,9 +81,12 @@ if not is_valid_args:
 regex_str_index = arguments_list.index(get_reg_format(arguments_list)) + 1
 # regex holds the string to find in files
 regex = arguments_list[regex_str_index]
-# get the range to get the files names from in the arguments list
-files_range_in_argv = get_range_of_files(arguments_list)
-print(files_range_in_argv)
 
-#files_list = get_files_list(arguments_list)
+
+### if received None for files range check how to get files from STDIN ###
+######### do i need to ask the user for input?? #########################
+
+# Received a range for files lookup so construct a dictionary of files
+files_dict = create_files_dictionary(arguments_list)
+print(files_dict)
 
