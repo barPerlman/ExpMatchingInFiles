@@ -3,6 +3,22 @@ The following script searches for lines matching regular
 expression in file/s"""
 
 import sys
+import re
+
+
+"""Updates the files dictionary with matches lines and their numbers"""
+
+
+def search_matches(files_dictionary):
+    for file_path in files_dictionary:
+        with open(file_path, "r") as file:
+            line_no = 1
+            current_line = file.readline()
+            while current_line:
+                if re.search(regex, current_line):
+                    files_dictionary[file_path].append((line_no, current_line))
+                line_no = line_no + 1
+                current_line = file.readline()
 
 
 """ Create and returns a dictionary includes the files names to search at
@@ -10,13 +26,14 @@ import sys
 
 
 def create_files_dictionary(args_list):
-    # get the range to get the files names from in the arguments list
+    # get the range from in the arguments list where the files are located
     files_range_in_argv = get_range_of_files(args_list)
     files_dictionary = {}
     for file in args_list[files_range_in_argv[0]:files_range_in_argv[1]+1:]:
         files_dictionary.setdefault(file, [])
 
     return files_dictionary
+
 
 """Returns a range for files to look at in argv list.
 In there are no such files in list, returns None"""
@@ -86,7 +103,11 @@ regex = arguments_list[regex_str_index]
 ### if received None for files range check how to get files from STDIN ###
 ######### do i need to ask the user for input?? #########################
 
-# Received a range for files lookup so construct a dictionary of files
+# Construct a dictionary of files
 files_dict = create_files_dictionary(arguments_list)
+# Search for expressions matches in files and updates the dictionary with lines
+# and their numbers
+search_matches(files_dict)
 print(files_dict)
+
 
