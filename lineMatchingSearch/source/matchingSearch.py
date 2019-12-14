@@ -164,7 +164,4 @@ printer_factory = PrinterFactory()  # Get the Printers factory
 printer = printer_factory.create_printer(print_type)
 printer.print_output(files_dict, regex)
 
-# for i in range(0, 10):
-#     print('^', end='', flush=True)
-#
 
