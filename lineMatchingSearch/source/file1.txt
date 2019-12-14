@@ -12,4 +12,4 @@ probablementefacil
 i      i      i      i     i
 
 /home/barper/PycharmProjects/ExpMatchingInFiles/lineMatchingSearch/source/file1.txt
-
+/home/barper/PycharmProjects/ExpMatchingInFiles/lineMatchingSearch/source/file2.txt

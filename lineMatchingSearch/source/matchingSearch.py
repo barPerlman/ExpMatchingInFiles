@@ -148,6 +148,16 @@ def check_params_validity(args_list):
     return is_params_valid
 
 
+def get_regex_list(arg_list, start_pos):
+    reg_list = []
+    for i in range(start_pos, len(arguments_list)):
+        if not arguments_list[i].startswith("-"):
+            reg_list.append(arguments_list[i])
+        else:
+            return reg_list
+    return regex_list
+
+
 arguments_list = sys.argv  # Holds the command line parameters as list
 
 # Check the validity of the inserted parameters for the program
@@ -157,8 +167,16 @@ if not is_valid_args:
 
 # Get the regex and the files names from the arguments
 regex_str_index = arguments_list.index(get_reg_format(arguments_list)) + 1
+
+regex_list = get_regex_list(arguments_list, regex_str_index)
+regex = ""
+for i in regex_list:
+    regex += str(i) + " "
+regex = regex[:-1]
+
+
 # regex holds the string to find in files
-regex = arguments_list[regex_str_index]
+#regex = arguments_list[regex_str_index]
 
 
 # Construct a dictionary of files
