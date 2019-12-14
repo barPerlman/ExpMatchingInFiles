@@ -19,6 +19,7 @@ def is_matched(files_dictionary):
 """returns true if in case the list optional parameters exist as arguments 
 implies they are mutually exclusive"""
 
+
 # Be aware: you should update this in case of extension of list optional params
 def is_output_format_exclusive(params_set):
     parallel_amount_of_flags = 0
@@ -49,6 +50,19 @@ def get_print_type(args_list):
     else:
         return None
 
+
+def check_file_existence(files_dictionary):
+
+    for file in files_dictionary:
+        try:
+            open(file, "r")
+        except IOError:
+            return False
+    return True
+
+
+
+
 """Updates the files dictionary with matches lines and their numbers"""
 
 
@@ -65,21 +79,22 @@ def search_matches(files_dictionary):
 
 
 """ Create and returns a dictionary includes the files names to search at
- as a key """
+ as a key. Return None if there are no files in args_list"""
 
 
 def create_files_dictionary(args_list):
     # get the range from in the arguments list where the files are located
     files_range_in_argv = get_range_of_files(args_list)
     files_dictionary = {}
-    for file in args_list[files_range_in_argv[0]:files_range_in_argv[1]+1:]:
-        files_dictionary.setdefault(file, [])
-
-    return files_dictionary
+    if files_range_in_argv is not None:
+        for file in args_list[files_range_in_argv[0]:files_range_in_argv[1] + 1:]:
+            files_dictionary.setdefault(file, [])
+        return files_dictionary
+    return None
 
 
 """Returns a range for files to look at in argv list.
-In there are no such files in list, returns None"""
+If there are no such files in list, returns None"""
 
 
 def get_range_of_files(args_list):
@@ -97,7 +112,7 @@ def get_range_of_files(args_list):
         while last_index < len(args_list) - 1 \
                 and not args_list[last_index].startswith("-"):
             last_index = last_index + 1
-    files_list = [first_index, last_index]
+    files_list = [first_index, last_index-1]
     if first_index == not_valid_index or last_index == not_valid_index:
         return None
     return files_list
@@ -146,22 +161,41 @@ regex_str_index = arguments_list.index(get_reg_format(arguments_list)) + 1
 regex = arguments_list[regex_str_index]
 
 
-### if received None for files range check how to get files from STDIN ###
-######### do i need to ask the user for input?? #########################
-
 # Construct a dictionary of files
 files_dict = create_files_dictionary(arguments_list)
+# In case there are no files in the arguments, ask for files from STDIN
+if files_dict is None:
+    ask_for_files = True
+    is_file_exist = False
+    while ask_for_files:
+        print("Couldn't find any file in the command.\n"
+              "Please insert the prefix '-f' and then the file(s) name(s)"
+              "with spaces between them or 'x' to Exit.")
+        received_input = sys.stdin.readline()
+        if received_input.endswith("\n"):
+            received_input = received_input[:-1]
+        input_as_list = received_input.split(" ")
+        if received_input == "x" or received_input == "X":
+            sys.exit("Exited.")
+        files_dict = create_files_dictionary(input_as_list)
+
+        if files_dict is not None:
+            is_files_exist = check_file_existence(files_dict)
+            if is_files_exist:
+                ask_for_files = False
+
+
 # Search for expressions matches in files and updates the dictionary with lines
 # and their numbers
-search_matches(files_dict)
+searched_successfully = search_matches(files_dict)
 # No matches were found
 if not is_matched(files_dict):
-    sys.exit("Sorry, but no matches were found in the file(s) for the inserted expression")
+    sys.exit("Sorry, but no matches were found in the file(s) for the inserted expression.\n"
+             "Exited.")
 print_type = get_print_type(arguments_list)  # Get printing format
 
 printer_factory = PrinterFactory()  # Get the Printers factory
 # Concrete printer by the inserted output type
 printer = printer_factory.create_printer(print_type)
 printer.print_output(files_dict, regex)
-
 
