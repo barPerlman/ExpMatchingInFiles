@@ -44,7 +44,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/matchingSearch.py" />
-      <option name="PARAMETERS" value="-r is -m -f $PROJECT_DIR$/file1.txt $PROJECT_DIR$/file2.txt" />
+      <option name="PARAMETERS" value="-r is --color -f $PROJECT_DIR$/file1.txt $PROJECT_DIR$/file2.txt" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -110,10 +110,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="702" y="302" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576325944351">
+    <state x="702" y="302" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576331992471">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="702" y="302" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576325944351" />
+    <state x="702" y="302" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576331992471" />
     <state x="1525" y="204" width="254" height="595" key="#xdebugger.evaluate" timestamp="1576323161252">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -126,22 +126,22 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="311" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576241576344" />
-    <state width="1830" height="286" key="GridCell.Tab.0.bottom" timestamp="1576325945790">
+    <state width="1830" height="286" key="GridCell.Tab.0.bottom" timestamp="1576332732148">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="286" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576325945790" />
-    <state width="1830" height="286" key="GridCell.Tab.0.center" timestamp="1576325945790">
+    <state width="1830" height="286" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576332732148" />
+    <state width="1830" height="286" key="GridCell.Tab.0.center" timestamp="1576332732148">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="286" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576325945790" />
-    <state width="1830" height="286" key="GridCell.Tab.0.left" timestamp="1576325945790">
+    <state width="1830" height="286" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576332732148" />
+    <state width="1830" height="286" key="GridCell.Tab.0.left" timestamp="1576332732148">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="286" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576325945790" />
-    <state width="1830" height="286" key="GridCell.Tab.0.right" timestamp="1576325945790">
+    <state width="1830" height="286" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576332732148" />
+    <state width="1830" height="286" key="GridCell.Tab.0.right" timestamp="1576332732148">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="286" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576325945790" />
+    <state width="1830" height="286" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576332732148" />
     <state width="1830" height="322" key="GridCell.Tab.1.bottom" timestamp="1576323287047">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

@@ -3,19 +3,27 @@ This PrinterFactory class is based on the principles of the Factory Design Patte
 import re
 
 
+yellow = "\x1b[1;33;1m{}\x1b[0m"  # color to highlight a matching text
+
+
 class PrinterFactory:
     def create_printer(self, output_type):
-        if output_type is None:
-            return RegularPrinter()
         if output_type == "-u":
             return UnderscorePrinter()
         if output_type == "-m":
             return MachinePrinter()
+        if output_type == "-c":
+            return ColorPrinter()
+        else:  # Output style is not inserted
+            return RegularPrinter()
 
 
 class Printer:
     def print_output(self, files_dictionary, regex):
         pass
+
+
+"""Responsible for printing in a default manner """
 
 
 class RegularPrinter(Printer):
@@ -88,3 +96,21 @@ class UnderscorePrinter(Printer):
                     mark_sign_under_match("^", start_iter, pos, line, regex)
                     start_iter = pos + len(regex)
                 print("")
+
+
+"""Class which responsible for output the matches in highlight manner"""
+
+
+class ColorPrinter(Printer):
+    def print_output(self, files_dictionary, regex):
+        colored_regex = '\x1b[1;33;1m{}\x1b[0m'.format(regex)  # Colorize regex in bold yellow
+        for file in files_dictionary:
+            if len(files_dictionary[file]) > 0:
+                print("___________________________________________________________________________")
+                print("File name: %s" % file)
+            for match in files_dictionary[file]:
+                line = match[1]
+                line_no = match[0]
+                colored_line = re.sub(regex, colored_regex, line)
+                print("Line number: %d | The Line: %s" % (line_no, colored_line))
+
