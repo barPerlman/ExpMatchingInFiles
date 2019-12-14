@@ -164,7 +164,9 @@ regex = arguments_list[regex_str_index]
 # Construct a dictionary of files
 files_dict = create_files_dictionary(arguments_list)
 # In case there are no files in the arguments, ask for files from STDIN
-if files_dict is None:
+# Or in case some of the files are not exist
+is_files_exist = check_file_existence(files_dict)
+if files_dict is None or not is_files_exist:
     ask_for_files = True
     is_file_exist = False
     while ask_for_files:
