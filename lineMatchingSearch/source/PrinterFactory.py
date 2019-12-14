@@ -9,6 +9,8 @@ class PrinterFactory:
             return RegularPrinter()
         if output_type == "-u":
             return UnderscorePrinter()
+        if output_type == "-m":
+            return MachinePrinter()
 
 
 class Printer:
@@ -44,6 +46,27 @@ def mark_sign_under_match(sign, start_iter, start_pos, line, regex):
             return
         else:
             print(" ", end='', flush=True)
+
+
+"""This class generate machine readable output format"""
+
+
+class MachinePrinter(Printer):
+    def print_output(self, files_dictionary, regex):
+        for file in files_dictionary:
+            if len(files_dictionary[file]) > 0:
+                print("___________________________________________________________________________")
+            for match in files_dictionary[file]:
+                line = match[1]
+                no_line = match[0]
+                start_poses = find_start_pos(line, regex)  # Start pos inside line
+                for pos in start_poses:
+                    # For each match in line print in the readable output
+                    # format: file_name:no_line:start_pos:matched_text
+                    print("%s:%d:%d:%s" % (file, no_line, pos, regex))
+
+
+"""This class responsible to print the output in underscore manner"""
 
 
 class UnderscorePrinter(Printer):
