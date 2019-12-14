@@ -5,6 +5,49 @@ expression in file/s"""
 import sys
 import re
 
+from source.PrinterFactory import PrinterFactory
+
+
+def is_matched(files_dictionary):
+    for file in files_dictionary:
+        if len(files_dictionary[file]) > 0:
+            return True
+    return False
+
+
+
+"""returns true if in case the list optional parameters exist as arguments 
+implies they are mutually exclusive"""
+
+# Be aware: you should update this in case of extension of list optional params
+def is_output_format_exclusive(params_set):
+    parallel_amount_of_flags = 0
+    if "-u" in params_set or "--underscore" in params_set:
+        parallel_amount_of_flags = parallel_amount_of_flags + 1
+    if "-c" in params_set or "--color" in params_set:
+        parallel_amount_of_flags = parallel_amount_of_flags + 1
+    if "-m" in params_set or "--machine" in params_set:
+        parallel_amount_of_flags = parallel_amount_of_flags + 1
+    if parallel_amount_of_flags > 1:
+        return False
+    return True
+
+
+"""The following responsible to return the requested output format
+or None in case there is no preferred one"""
+
+
+def get_print_type(args_list):
+    args_set = set(args_list)
+    # The following will check for each optional parameters of output format
+    if "-u" in args_set or "--underscore" in args_set:
+        return "-u"
+    if "-c" in args_set or "--color" in args_set:
+        return "-c"
+    if "-m" in args_set or "--machine" in args_set:
+        return "-m"
+    else:
+        return None
 
 """Updates the files dictionary with matches lines and their numbers"""
 
@@ -80,9 +123,12 @@ def check_params_validity(args_list):
     minimum_params = 4  # amount of min. params the program expects to receive
     is_params_valid = True
     params_set = set(args_list)
-    if get_reg_format(args_list) is None:  #check if reg option is exist
+    if get_reg_format(args_list) is None:  # Check if reg option is exist
         is_params_valid = False
     if len(args_list) < minimum_params:
+        is_params_valid = False
+    # Check that optional parameters are mutually exclusive
+    if not is_output_format_exclusive(params_set):
         is_params_valid = False
     return is_params_valid
 
@@ -108,6 +154,17 @@ files_dict = create_files_dictionary(arguments_list)
 # Search for expressions matches in files and updates the dictionary with lines
 # and their numbers
 search_matches(files_dict)
-print(files_dict)
+# No matches were found
+if not is_matched(files_dict):
+    sys.exit("Sorry, but no matches were found in the file(s) for the inserted expression")
+print_type = get_print_type(arguments_list)  # Get printing format
 
+printer_factory = PrinterFactory()  # Get the Printers factory
+# Concrete printer by the inserted output type
+printer = printer_factory.create_printer(print_type)
+printer.print_output(files_dict, regex)
+
+# for i in range(0, 10):
+#     print('^', end='', flush=True)
+#
 
