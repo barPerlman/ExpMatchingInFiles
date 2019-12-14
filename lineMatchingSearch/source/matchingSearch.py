@@ -110,9 +110,9 @@ def get_range_of_files(args_list):
         last_index = first_index
         # Find the last index of a file in arguments list
         while last_index < len(args_list) - 1 \
-                and not args_list[last_index].startswith("-"):
+                and not args_list[last_index+1].startswith("-"):
             last_index = last_index + 1
-    files_list = [first_index, last_index-1]
+    files_list = [first_index, last_index]
     if first_index == not_valid_index or last_index == not_valid_index:
         return None
     return files_list
@@ -187,7 +187,7 @@ if files_dict is None:
 
 # Search for expressions matches in files and updates the dictionary with lines
 # and their numbers
-searched_successfully = search_matches(files_dict)
+search_matches(files_dict)
 # No matches were found
 if not is_matched(files_dict):
     sys.exit("Sorry, but no matches were found in the file(s) for the inserted expression.\n"
