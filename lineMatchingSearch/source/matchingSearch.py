@@ -5,7 +5,7 @@ expression in file/s"""
 import sys
 import re
 
-from source.PrinterFactory import PrinterFactory
+from PrinterFactory import PrinterFactory
 
 
 def is_matched(files_dictionary):
