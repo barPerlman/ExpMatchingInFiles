@@ -1,1 +1,0 @@
--r is -f /home/barper/PycharmProjects/lineMatchingSearch/file1.txt

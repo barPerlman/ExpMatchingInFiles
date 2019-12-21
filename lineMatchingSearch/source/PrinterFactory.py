@@ -8,14 +8,16 @@ yellow = "\x1b[1;33;1m{}\x1b[0m"  # color to highlight a matching text
 
 class PrinterFactory:
     def create_printer(self, output_type):
-        if output_type == "-u":
+        if output_type == "-u":  # Underscore format
             return UnderscorePrinter()
-        if output_type == "-m":
+        if output_type == "-m":  # Machine format
             return MachinePrinter()
-        if output_type == "-c":
+        if output_type == "-c":  # Color format
             return ColorPrinter()
         else:  # Output style is not inserted
             return RegularPrinter()
+
+# Printer abstract class
 
 
 class Printer:
@@ -36,13 +38,20 @@ class RegularPrinter(Printer):
                 print("Line number: %d | The Line: %s" % (match[0], match[1]))
 
 
-"""Return all indices of matches in line of the reveived regex"""
+"""Return all indices of matches in line of the received regex"""
 
 
 def find_start_pos(line, regex):
     iter = re.finditer(regex, line)
+    # Holds the start position indexes for each match in line
     start_positions = [match_pos.start(0) for match_pos in iter]
     return start_positions
+
+
+"""mark signs under the match in the line
+sign: the sign to mark with
+start_iter: where we last printed the sign in line
+start pos: the index of the start of the regex in line """
 
 
 def mark_sign_under_match(sign, start_iter, start_pos, line, regex):
@@ -103,7 +112,7 @@ class UnderscorePrinter(Printer):
 
 class ColorPrinter(Printer):
     def print_output(self, files_dictionary, regex):
-        colored_regex = '\x1b[1;33;1m{}\x1b[0m'.format(regex)  # Colorize regex in bold yellow
+        colored_regex = yellow.format(regex)  # Colorize regex in bold yellow
         for file in files_dictionary:
             if len(files_dictionary[file]) > 0:
                 print("___________________________________________________________________________")
@@ -113,4 +122,3 @@ class ColorPrinter(Printer):
                 line_no = match[0]
                 colored_line = re.sub(regex, colored_regex, line)
                 print("Line number: %d | The Line: %s" % (line_no, colored_line))
-

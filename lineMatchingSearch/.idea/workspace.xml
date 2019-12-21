@@ -44,7 +44,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/matchingSearch.py" />
-      <option name="PARAMETERS" value="matchingSearch.py -r is -f  $PROJECT_DIR$/../ExpMatchingInFiles/lineMatchingSearch/source" />
+      <option name="PARAMETERS" value="-r nam -f  $PROJECT_DIR$/file2.txt -m" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -74,8 +74,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.matchingSearch" />
       <item itemvalue="Python.matchingSearch (1)" />
+      <item itemvalue="Python.matchingSearch" />
     </list>
     <recent_temporary>
       <list>
@@ -110,14 +110,15 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="702" y="302" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576356030426">
+    <state x="702" y="302" width="1117" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576954443246">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="702" y="302" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576356030426" />
-    <state x="1357" y="50" width="563" height="595" key="#xdebugger.evaluate" timestamp="1576354972288">
+    <state x="702" y="302" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576954443246" />
+    <state x="702" y="302" width="1117" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576414955408" />
+    <state x="1165" y="485" width="563" height="595" key="#xdebugger.evaluate" timestamp="1576923713030">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1357" y="50" width="563" height="595" key="#xdebugger.evaluate/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576354972288" />
+    <state x="1165" y="485" width="563" height="595" key="#xdebugger.evaluate/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576923713030" />
     <state width="518" height="466" key="DebuggerActiveHint" timestamp="1576253165935">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -126,54 +127,73 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="311" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576241576344" />
-    <state width="1367" height="286" key="GridCell.Tab.0.bottom" timestamp="1576356195885">
+    <state width="1830" height="259" key="GridCell.Tab.0.bottom" timestamp="1576954445088">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1367" height="286" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576356195885" />
-    <state width="1367" height="286" key="GridCell.Tab.0.center" timestamp="1576356195885">
+    <state width="1830" height="259" key="GridCell.Tab.0.bottom/0.27.3840.1053@0.27.3840.1053" timestamp="1576437331475" />
+    <state width="1830" height="259" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576954445088" />
+    <state width="1830" height="259" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1576414961460" />
+    <state width="1830" height="259" key="GridCell.Tab.0.center" timestamp="1576954445087">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1367" height="286" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576356195885" />
-    <state width="1367" height="286" key="GridCell.Tab.0.left" timestamp="1576356195885">
+    <state width="1830" height="259" key="GridCell.Tab.0.center/0.27.3840.1053@0.27.3840.1053" timestamp="1576437331474" />
+    <state width="1830" height="259" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576954445087" />
+    <state width="1830" height="259" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1576414961459" />
+    <state width="1830" height="259" key="GridCell.Tab.0.left" timestamp="1576954445087">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1367" height="286" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576356195885" />
-    <state width="1367" height="286" key="GridCell.Tab.0.right" timestamp="1576356195885">
+    <state width="1830" height="259" key="GridCell.Tab.0.left/0.27.3840.1053@0.27.3840.1053" timestamp="1576437331474" />
+    <state width="1830" height="259" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576954445087" />
+    <state width="1830" height="259" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1576414961459" />
+    <state width="1830" height="259" key="GridCell.Tab.0.right" timestamp="1576954445087">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1367" height="286" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576356195885" />
-    <state width="1830" height="322" key="GridCell.Tab.1.bottom" timestamp="1576354981747">
+    <state width="1830" height="259" key="GridCell.Tab.0.right/0.27.3840.1053@0.27.3840.1053" timestamp="1576437331474" />
+    <state width="1830" height="259" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576954445087" />
+    <state width="1830" height="259" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1576414961460" />
+    <state width="1830" height="322" key="GridCell.Tab.1.bottom" timestamp="1576928616995">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="322" key="GridCell.Tab.1.bottom/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576354981747" />
-    <state width="1830" height="322" key="GridCell.Tab.1.center" timestamp="1576354981747">
+    <state width="1830" height="322" key="GridCell.Tab.1.bottom/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576928616995" />
+    <state width="1830" height="322" key="GridCell.Tab.1.center" timestamp="1576928616995">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="322" key="GridCell.Tab.1.center/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576354981747" />
-    <state width="1830" height="322" key="GridCell.Tab.1.left" timestamp="1576354981747">
+    <state width="1830" height="322" key="GridCell.Tab.1.center/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576928616995" />
+    <state width="1830" height="322" key="GridCell.Tab.1.left" timestamp="1576928616995">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="322" key="GridCell.Tab.1.left/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576354981747" />
-    <state width="1830" height="322" key="GridCell.Tab.1.right" timestamp="1576354981747">
+    <state width="1830" height="322" key="GridCell.Tab.1.left/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576928616995" />
+    <state width="1830" height="322" key="GridCell.Tab.1.right" timestamp="1576928616995">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="322" key="GridCell.Tab.1.right/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576354981747" />
+    <state width="1830" height="322" key="GridCell.Tab.1.right/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576928616995" />
     <state x="482" y="188" key="SettingsEditor" timestamp="1576324798344">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="188" key="SettingsEditor/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576324798344" />
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1576353083019">
+    <state x="2423" y="302" key="com.intellij.ide.util.TipDialog" timestamp="1576917961565">
+      <screen x="1920" y="0" width="1600" height="900" />
+    </state>
+    <state x="2423" y="302" key="com.intellij.ide.util.TipDialog/67.27.1853.1053/1920.0.1600.900@1920.0.1600.900" timestamp="1576917961565" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576353083019" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1576768788981" />
+    <state x="543" y="291" width="890" height="522" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1576924476679">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576353083019" />
+    <state x="543" y="291" width="890" height="522" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1853.1053/1920.0.1600.900@67.27.1853.1053" timestamp="1576924476679" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/source/matchingSearch.py</url>
-          <line>193</line>
-          <option name="timeStamp" value="11" />
+          <line>195</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/source/matchingSearch.py</url>
+          <line>208</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

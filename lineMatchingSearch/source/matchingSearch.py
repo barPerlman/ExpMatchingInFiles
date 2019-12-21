@@ -5,7 +5,9 @@ expression in file/s"""
 import sys
 import re
 
-from PrinterFactory import PrinterFactory
+from source.PrinterFactory import PrinterFactory
+
+"""Returns true in case there is at least 1 matching line in a file"""
 
 
 def is_matched(files_dictionary):
@@ -13,7 +15,6 @@ def is_matched(files_dictionary):
         if len(files_dictionary[file]) > 0:
             return True
     return False
-
 
 
 """returns true if in case the list optional parameters exist as arguments 
@@ -51,16 +52,18 @@ def get_print_type(args_list):
         return None
 
 
-def check_file_existence(files_dictionary):
+"""check all of the inserted files paths are valid"""
 
+
+def check_file_existence(files_dictionary):
+    if files_dictionary is None:
+        return False
     for file in files_dictionary:
         try:
             open(file, "r")
         except IOError:
             return False
     return True
-
-
 
 
 """Updates the files dictionary with matches lines and their numbers"""
@@ -148,14 +151,20 @@ def check_params_validity(args_list):
     return is_params_valid
 
 
+"""return a list of words in case the regex is composed of 
+more then one word"""
+
+
 def get_regex_list(arg_list, start_pos):
     reg_list = []
-    for i in range(start_pos, len(arguments_list)):
-        if not arguments_list[i].startswith("-"):
-            reg_list.append(arguments_list[i])
+    for i in range(start_pos, len(arg_list)):
+        if not arg_list[i].startswith("-"):
+            reg_list.append(arg_list[i])
         else:
             return reg_list
     return regex_list
+
+# Here thr main script starts:
 
 
 arguments_list = sys.argv  # Holds the command line parameters as list
@@ -169,15 +178,11 @@ if not is_valid_args:
 regex_str_index = arguments_list.index(get_reg_format(arguments_list)) + 1
 
 regex_list = get_regex_list(arguments_list, regex_str_index)
+# Assemble the regex as string from the list
 regex = ""
 for i in regex_list:
     regex += str(i) + " "
-regex = regex[:-1]
-
-
-# regex holds the string to find in files
-#regex = arguments_list[regex_str_index]
-
+regex = regex[:-1]  # Remove last space
 
 # Construct a dictionary of files
 files_dict = create_files_dictionary(arguments_list)
@@ -199,11 +204,10 @@ if files_dict is None or not is_files_exist:
             sys.exit("Exited.")
         files_dict = create_files_dictionary(input_as_list)
 
-        if files_dict is not None:
+        if files_dict is not None:  # Files inserted
             is_files_exist = check_file_existence(files_dict)
-            if is_files_exist:
+            if is_files_exist:  # files path is valid
                 ask_for_files = False
-
 
 # Search for expressions matches in files and updates the dictionary with lines
 # and their numbers

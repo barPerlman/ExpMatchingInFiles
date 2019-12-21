@@ -9,11 +9,3 @@ Red Hat
 
 momomomomomooomomommoooooomoommmmhomom
 Red Hot Chili peppers
-
-
-123456789
-1 2 3 4 5 6 77 
-
-Checking for symbols: ! @ #$ % ^ & * () _ - + = 
-
-|||| \\  {} []
