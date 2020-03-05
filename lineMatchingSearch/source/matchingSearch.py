@@ -5,7 +5,7 @@ expression in file/s"""
 import sys
 import re
 
-from source.PrinterFactory import PrinterFactory
+from PrinterFactory import PrinterFactory
 
 """Returns true in case there is at least 1 matching line in a file"""
 
